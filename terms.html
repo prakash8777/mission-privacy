@@ -1,108 +1,766 @@
 
-<style>
-:root {
-  color-scheme: light;
-  --bg: #f7f8f6;
-  --surface: #ffffff;
-  --text: #17202a;
-  --muted: #68727d;
-  --accent: #ff7a3d;
-  --accent-dark: #c95720;
-  --accent-soft: #fff0e8;
-  --border: #e2e6e8;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font: 16px/1.7 Arial, Helvetica, sans-serif;
-}
-.topbar {
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-}
-.topbar-inner, main, footer {
-  width: min(900px, calc(100% - 40px));
-  margin: 0 auto;
-}
-.topbar-inner {
-  min-height: 88px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.mark {
-  width: 40px;
-  height: 40px;
-  border-radius: 11px;
-  display: grid;
-  place-items: center;
-  color: var(--accent);
-  background: var(--accent-soft);
-  font-weight: 800;
-  letter-spacing: -.04em;
-}
-.brand {
-  font-size: 1.06rem;
-  font-weight: 800;
-  letter-spacing: .12em;
-}
-main { padding: 35px 0 54px; }
-.document {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: clamp(24px, 5vw, 42px);
-  box-shadow: 0 8px 28px rgba(23, 32, 42, .035);
-}
-.eyebrow {
-  color: var(--accent-dark);
-  font-size: .78rem;
-  font-weight: 750;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-h1 {
-  margin: 8px 0;
-  font-size: clamp(2rem, 5vw, 2.6rem);
-  line-height: 1.16;
-  letter-spacing: -.04em;
-}
-.updated {
-  color: var(--muted);
-  font-size: .92rem;
-  margin-bottom: 28px;
-}
-h2 {
-  font-size: 1.18rem;
-  line-height: 1.4;
-  margin: 30px 0 8px;
-}
-p { margin: 9px 0 14px; }
-ul { padding-left: 1.35rem; margin: 8px 0 16px; }
-li { padding-left: 3px; margin: 6px 0; }
-li::marker { color: var(--accent); }
-a { color: var(--accent-dark); text-underline-offset: 3px; }
-a:hover { color: var(--accent); }
-.notice {
-  border-left: 4px solid var(--accent);
-  padding: 12px 16px;
-  margin: 22px 0;
-  background: var(--accent-soft);
-  border-radius: 0 10px 10px 0;
-}
-footer {
-  color: var(--muted);
-  font-size: .86rem;
-  text-align: center;
-  padding: 0 0 30px;
-}
-@media (max-width: 520px) {
-  .topbar-inner, main, footer { width: calc(100% - 28px); }
-  main { padding-top: 20px; }
-  .topbar-inner { min-height: 72px; }
-  .document { border-radius: 14px; }
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f8f6" />
+
+  <title>Terms & Conditions | MISSION</title>
+  <meta
+    name="description"
+    content="Read the Terms and Conditions for using MISSION, the personal growth and mission-based learning app."
+  />
+
+  <style>
+    :root {
+      --bg: #f7f8f6;
+      --card: #ffffff;
+      --text: #17202a;
+      --muted: #68727d;
+      --border: #e2e6e8;
+      --accent: #ff7a3d;
+      --accent-dark: #c95720;
+      --accent-soft: #fff0e8;
+      --radius: 20px;
+      --shadow: 0 8px 30px rgba(23, 32, 42, 0.045);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topbar {
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      width: min(100% - 40px, 900px);
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--text);
+      font-size: 20px;
+      font-weight: 850;
+      letter-spacing: -0.7px;
+    }
+
+    .brand:hover {
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 21px;
+      font-weight: 900;
+      box-shadow: 0 5px 14px rgba(255, 122, 61, 0.22);
+    }
+
+    .topbar-link {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .page {
+      width: min(100% - 32px, 820px);
+      margin: 44px auto 64px;
+    }
+
+    .hero {
+      padding: 36px 34px;
+      margin-bottom: 22px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 15px;
+      padding: 6px 12px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(34px, 6vw, 48px);
+      line-height: 1.13;
+      letter-spacing: -1.8px;
+      font-weight: 850;
+    }
+
+    .hero-description {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .updated {
+      display: inline-block;
+      margin-top: 19px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .content-card {
+      padding: 30px 34px;
+      margin-bottom: 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 0 0 15px;
+      font-size: 21px;
+      line-height: 1.4;
+      letter-spacing: -0.45px;
+      font-weight: 800;
+    }
+
+    .section-number {
+      display: inline-grid;
+      flex: 0 0 32px;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 11px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin: 10px 0 16px;
+      padding-left: 24px;
+    }
+
+    li {
+      padding-left: 3px;
+      margin: 5px 0;
+    }
+
+    li::marker {
+      color: var(--accent);
+    }
+
+    strong {
+      font-weight: 750;
+    }
+
+    .notice {
+      padding: 17px 19px;
+      margin: 18px 0;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .notice p {
+      margin: 0;
+    }
+
+    .contact-card {
+      background: #fffaf7;
+      border-color: #ffddca;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 11px 16px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 750;
+    }
+
+    .contact-link:hover {
+      background: var(--accent-dark);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer {
+      padding: 25px 10px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .footer-brand {
+      margin-bottom: 5px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 850;
+      letter-spacing: -0.3px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 20px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .topbar-inner {
+        width: calc(100% - 32px);
+        min-height: 68px;
+      }
+
+      .brand {
+        font-size: 18px;
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+      }
+
+      .page {
+        width: calc(100% - 24px);
+        margin: 22px auto 40px;
+      }
+
+      .hero {
+        padding: 27px 22px;
+        border-radius: 22px;
+      }
+
+      .content-card {
+        padding: 23px 20px;
+        border-radius: 17px;
+      }
+
+      h1 {
+        letter-spacing: -1.2px;
+      }
+
+      h2 {
+        font-size: 19px;
+        gap: 10px;
+      }
+
+      body {
+        font-size: 15px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .topbar {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .hero,
+      .content-card {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      .footer-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./index.html" aria-label="MISSION home">
+        <span class="brand-mark">M</span>
+        <span>MISSION</span>
+      </a>
+
+      <a class="topbar-link" href="./index.html">Privacy Policy →</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Legal information
+      </div>
+
+      <h1>Terms &amp; Conditions</h1>
+
+      <p class="hero-description">
+        Welcome to MISSION. These Terms explain the rules for using our app,
+        features, and services. Please read them carefully before using MISSION.
+      </p>
+
+      <span class="updated">Last updated: October 9, 2026</span>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">01</span> Acceptance of Terms</h2>
+
+      <p>
+        These Terms and Conditions (“Terms”) govern your access to and use of
+        MISSION (“the app,” “we,” “our,” or “us”). By accessing or using
+        MISSION, you agree to these Terms.
+      </p>
+
+      <p>
+        If you do not agree to these Terms, please do not use the app.
+        If you use MISSION on behalf of another person or organization,
+        you confirm that you have authority to accept these Terms on their behalf.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">02</span> Eligibility and Accounts</h2>
+
+      <p>
+        You must be legally able to enter into an agreement in your jurisdiction
+        to use MISSION. If you are below the age of majority, you should use
+        the app only with the involvement and permission of a parent or legal
+        guardian where required by law.
+      </p>
+
+      <p>When creating or maintaining an account, you agree to:</p>
+
+      <ul>
+        <li>Provide information that is accurate to the best of your knowledge.</li>
+        <li>Keep your sign-in credentials secure.</li>
+        <li>Notify us if you suspect unauthorized access to your account.</li>
+        <li>Take responsibility for activity performed through your account, subject to applicable law.</li>
+      </ul>
+
+      <p>
+        We may restrict or suspend access where reasonably necessary to protect
+        users, maintain security, address abuse, or comply with legal obligations.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">03</span> About MISSION</h2>
+
+      <p>
+        MISSION is designed to support personal growth, learning, and habit
+        development through missions, activities, progress tracking, and
+        related features.
+      </p>
+
+      <p>
+        Depending on the version of the app and your plan, features may include
+        personalized recommendations, AI-assisted content, progress summaries,
+        and premium functionality.
+      </p>
+
+      <p>
+        Features may change over time. We may add, modify, or discontinue
+        features where reasonably necessary for product development, security,
+        legal compliance, or operational reasons.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">04</span> Acceptable Use</h2>
+
+      <p>You agree not to:</p>
+
+      <ul>
+        <li>Use MISSION for unlawful, fraudulent, or harmful activities.</li>
+        <li>Attempt to gain unauthorized access to accounts, systems, or data.</li>
+        <li>Interfere with the app's security, availability, or normal operation.</li>
+        <li>Reverse engineer, copy, or exploit parts of the service except where applicable law permits.</li>
+        <li>Upload or submit content that infringes another person's rights or violates applicable law.</li>
+        <li>Use automation or other methods to abuse, disrupt, or improperly access the service.</li>
+        <li>Misrepresent your identity or misuse another person's account.</li>
+      </ul>
+
+      <p>
+        We may investigate suspected violations and take appropriate action,
+        subject to applicable law.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">05</span> AI-Generated Content</h2>
+
+      <p>
+        Certain MISSION features may use artificial intelligence to generate
+        missions, suggestions, explanations, or other content.
+      </p>
+
+      <p>
+        AI-generated content can be inaccurate, incomplete, outdated, or
+        unsuitable for your circumstances. You are responsible for evaluating
+        whether a suggestion is appropriate before acting on it.
+      </p>
+
+      <div class="notice">
+        <p>
+          <strong>Important:</strong> MISSION is intended for general learning
+          and personal development. Unless expressly stated otherwise, its
+          content is not professional medical, mental health, legal, financial,
+          or other specialist advice.
+        </p>
+      </div>
+
+      <p>
+        Do not rely solely on AI-generated content when making important
+        decisions that require qualified professional guidance.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">06</span> Subscriptions and Payments</h2>
+
+      <p>
+        MISSION may offer paid subscription plans or premium features. The
+        available plans, prices, billing periods, and included benefits are
+        presented in the app or the relevant purchase screen.
+      </p>
+
+      <ul>
+        <li>Subscriptions purchased through Google Play are subject to the applicable Google Play purchase terms.</li>
+        <li>Subscription prices and available plans may vary by region and may change for future purchases or renewal periods, subject to applicable requirements.</li>
+        <li>Recurring subscriptions generally renew automatically unless canceled according to the applicable store's instructions.</li>
+        <li>Deleting the app does not necessarily cancel an active subscription.</li>
+        <li>Access to premium features may depend on a valid subscription and successful verification of the purchase.</li>
+      </ul>
+
+      <p>
+        To manage or cancel a Google Play subscription, use the subscription
+        settings in your Google Play account. Cancellation generally prevents
+        future renewals but does not automatically entitle you to a refund for
+        a period already paid for.
+      </p>
+
+      <p>
+        Payments, renewals, cancellations, and refunds are handled according
+        to the purchase platform's policies and applicable law. Where
+        applicable, RevenueCat may be used to help manage subscription status
+        and entitlement information.
+      </p>
+
+      <p>
+        Nothing in these Terms limits any mandatory consumer rights you may
+        have under applicable law.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">07</span> Intellectual Property</h2>
+
+      <p>
+        To the extent owned or licensed by us, the MISSION app and its
+        associated branding, design, software, text, graphics, and other
+        materials are protected by intellectual property laws.
+      </p>
+
+      <p>
+        We grant you a limited, personal, non-exclusive, non-transferable
+        right to use MISSION for its intended purpose, subject to these Terms.
+      </p>
+
+      <p>
+        You may not reproduce, distribute, sell, or commercially exploit
+        our protected materials without permission, except where permitted
+        by applicable law.
+      </p>
+
+      <p>
+        You retain rights you may have in content you submit. You authorize
+        us to process that content as reasonably necessary to operate, provide,
+        secure, and improve the service, subject to our Privacy Policy and
+        applicable law.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">08</span> Third-Party Services</h2>
+
+      <p>
+        MISSION may rely on third-party services for functions such as
+        authentication, data storage, analytics, payments, subscriptions,
+        or AI-powered features.
+      </p>
+
+      <p>
+        Your use of third-party services may also be governed by their own
+        terms and privacy policies. We are not responsible for independent
+        third-party services to the extent permitted by applicable law.
+      </p>
+
+      <p>
+        We work to maintain a reliable service but cannot guarantee that every
+        third-party service will always be available or error-free.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">09</span> Privacy and Your Data</h2>
+
+      <p>
+        Our Privacy Policy describes how we collect, use, store, and protect
+        personal information in connection with MISSION.
+      </p>
+
+      <p>
+        By using MISSION, you acknowledge that information may be processed
+        as described in that policy and as permitted by applicable law.
+      </p>
+
+      <p>
+        Please read our
+        <a href="./index.html">Privacy Policy</a>
+        for details about data practices, retention, and your privacy choices.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">10</span> Account Deletion</h2>
+
+      <p>
+        If the app provides an account deletion option, you may use it to
+        request deletion of your account. You may also contact us using the
+        details below for assistance.
+      </p>
+
+      <p>
+        Some information may need to be retained where required by law, for
+        legitimate security purposes, to resolve disputes, or to complete
+        transactions. Any such retention will be handled according to
+        applicable law and our Privacy Policy.
+      </p>
+
+      <p>
+        Account deletion does not necessarily cancel a subscription purchased
+        through an app store. Manage any active subscription separately through
+        the relevant purchase platform.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">11</span> Availability and Changes</h2>
+
+      <p>
+        We aim to keep MISSION available and functioning, but we do not
+        guarantee uninterrupted access, error-free operation, or availability
+        on every device or operating system.
+      </p>
+
+      <p>
+        We may update, suspend, or discontinue parts of the service when
+        reasonably necessary. Where required by law, we will provide notice
+        or obtain consent before making material changes.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">12</span> Disclaimers</h2>
+
+      <p>
+        To the extent permitted by applicable law, MISSION is provided on an
+        “as is” and “as available” basis. We do not guarantee that the app
+        will always be uninterrupted, secure, accurate, or suitable for
+        every individual purpose.
+      </p>
+
+      <p>
+        We do not guarantee particular personal growth, learning, productivity,
+        or habit-building outcomes. Your results depend on many factors,
+        including your individual circumstances and use of the app.
+      </p>
+
+      <p>
+        These disclaimers do not exclude warranties or rights that cannot
+        lawfully be excluded under applicable law.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">13</span> Limitation of Liability</h2>
+
+      <p>
+        To the extent permitted by applicable law, we will not be liable for
+        indirect, incidental, special, consequential, or punitive losses, or
+        loss of profits, data, goodwill, or business opportunities arising
+        from your use of or inability to use MISSION.
+      </p>
+
+      <p>
+        To the extent permitted by applicable law, our total liability for
+        claims arising out of or relating to the service will be limited to
+        the amount you paid directly to us for the service during the
+        twelve months preceding the event giving rise to the claim, or the
+        minimum amount required by applicable law if a limitation is not
+        permitted.
+      </p>
+
+      <p>
+        Nothing in these Terms excludes or limits liability that cannot
+        lawfully be excluded or limited, including any mandatory consumer
+        protections that apply to you.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">14</span> Suspension and Termination</h2>
+
+      <p>
+        You may stop using MISSION at any time. If you want to delete your
+        account, follow the available in-app process or contact us.
+      </p>
+
+      <p>
+        We may suspend or terminate access if reasonably necessary because
+        of a serious breach of these Terms, suspected fraud or abuse, a
+        security risk, or a legal requirement.
+      </p>
+
+      <p>
+        Termination does not affect provisions that by their nature should
+        continue to apply, including applicable intellectual property,
+        disclaimers, liability, and dispute-related provisions.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">15</span> Changes to These Terms</h2>
+
+      <p>
+        We may update these Terms from time to time. When we do, we will
+        revise the “Last updated” date shown at the top of this page.
+      </p>
+
+      <p>
+        Where required by law, we will give notice of material changes.
+        Your continued use of MISSION after revised Terms take effect
+        constitutes acceptance where such acceptance is legally valid.
+      </p>
+    </section>
+
+    <section class="content-card">
+      <h2><span class="section-number">16</span> Governing Law</h2>
+
+      <p>
+        These Terms are subject to applicable laws. Any dispute will be
+        handled by the courts or other dispute-resolution bodies that have
+        jurisdiction under applicable law.
+      </p>
+
+      <p>
+        Nothing in this section removes any mandatory rights or protections
+        available to you under the laws that apply to your use of MISSION.
+      </p>
+    </section>
+
+    <section class="content-card contact-card">
+      <h2><span class="section-number">17</span> Contact Us</h2>
+
+      <p>
+        If you have questions about these Terms, account access, or the
+        MISSION service, contact us by email.
+      </p>
+
+      <p><strong>MISSION Support</strong></p>
+
+      <a class="contact-link" href="mailto:nathprakash728@gmail.com">
+        ✉ Contact Support
+      </a>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-brand">MISSION</div>
+      <p>Small steps. Meaningful progress.</p>
+
+      <nav class="footer-links" aria-label="Legal links">
+        <a href="./index.html">Privacy Policy</a>
+        <a href="./terms.html">Terms &amp; Conditions</a>
+        <a href="mailto:nathprakash728@gmail.com">Contact</a>
+      </nav>
+
+      <p style="margin-top: 18px;">
+        © 2026 MISSION. All rights reserved.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
